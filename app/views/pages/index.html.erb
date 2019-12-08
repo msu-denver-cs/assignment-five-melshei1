@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pages</h1>
-
+<h1>Pages </h1>
+<!-- Create a navigation bar using URL helpers for Adding a car -->
+<!-- Create a navigation bar using URL helpers for Adding a make -->
+<!-- Create a navigation bar using URL helpers for Adding a part -->
+<%= link_to "Add Car" , cars_url %>
+<%= link_to "Add Make" , makes_url %>
+<%= link_to "Add Part" , parts_url %>
 <table>
   <thead>
     <tr>
@@ -13,24 +18,17 @@
   <%if current_user %>
   <h3><%= link_to "Sing out",  destroy_user_session_path ,method: :delete %></h3>
     <% else %>
-  <h3><%= link_to "Sing up",new_user_session_path %></h3>
-    <h3><%= link_to "Sing in" , user_session_path %></h3>
+  <h3> <%= link_to "Sing up",new_user_session_path %>
+    <%= link_to "Sing in" , user_session_path %></h3>
     <%end %>
 
 
     <!-- Create a navigation bar using URL helpers for Adding a car -->
-    <h2>
-      <%= link_to "Add Car" , cars_url %>
-    </h2>
-
     <!-- Create a navigation bar using URL helpers for Adding a make -->
-    <h2>
-      <%= link_to "Add Make" , makes_url %>
-    </h2>
     <!-- Create a navigation bar using URL helpers for Adding a part -->
-    <h2>
-      <%= link_to "Add Part" , parts_url %>
-    </h2>
+
+
+
 
   </tbody>
 </table>

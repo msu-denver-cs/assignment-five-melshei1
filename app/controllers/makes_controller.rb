@@ -33,6 +33,7 @@ class MakesController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @make.errors, status: :unprocessable_entity }
+        format.json
       end
     end
   end

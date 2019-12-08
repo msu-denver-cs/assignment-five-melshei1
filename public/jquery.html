@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Cars_parts_makes jquery SPA</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
 </head>
-<body>
-$END$
-</body>
+
+
+<button onclick="fetch('cars', ['model','vin_number','make','many_part','part_id'])">Cars</button>
+<button onclick="fetch('makes', ['make', 'country','car_id'])">Makes</button>
+<button onclick="fetch('parts', ['part'])">Parts</button>
+
+
+
+    <body>
+
+    <div id="list">
+        <div id="display">
+        </div>
+
+    <script>
+        var fetch = function(which, fields) {
+            $("#list").empty();
+            $.get("http://localhost:3000/" + which + ".JSON", true)
+                .done(function(json) {
+                    for (item in json) {
+                        lis = "<li>";
+                        for (field in fields) {
+                            lis += json[item][fields[field]] + " ";
+                        }
+                        lis += "</li>";
+                        $("#list").append(lis);
+                    }
+                })
+                .fail(function(json){ console.log("fail"); })
+        };
+    </script>
+
+
+    </body>
+
 </html>
+
